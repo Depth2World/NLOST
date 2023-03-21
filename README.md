@@ -3,8 +3,11 @@
 ## Reconstructed hidden scenes from the public real-world dataset.
 ![fk_rw](https://github.com/Depth2World/NLOST/blob/main/images/fk_rw.png)
 
+
 ## Reconstructed hidden scenes from real-world measurements captured by our NLOS imaging system.
 ![ours_rw](https://github.com/Depth2World/NLOST/blob/main/images/our_rw.png)
+
+
 ## Details about the imaging system.
 We built a NLOS system working in a confocal manner. A 532 nm laser emits pulses at 50 ps pulse width and 11 MHz repetition frequency with a typical 250 mW average power. The pulses pass through a two-axis raster-scanning galvo mirror, and transmit to the visible wall. The direct and indirect diffuse photons are collected by the other two-axis galvo mirror and then coupled to a multimode fiber directed to a free-running single-photon avalanche diode (SPAD) detector with a detection efficiency about 40\%. A time-correlated single photon counter records the sync signals from the laser and the photon-detection signals from the SPAD. The temporal resolution of the overall system is measured to be approximately 95 ps. 
 
@@ -13,13 +16,15 @@ In data collection, the illuminated point and sampling point keep the same direc
 The scene thumbnails of the captured measurements are shown as below.
 ![scene thumbnails](https://github.com/Depth2World/NLOST/blob/main/images/objects.png)
 
+
 ## Datasets
 
 The real-world measurements capturd by our imaging system can be downloaded at [googledisk]().
 
+
 ## Contact 
 For questionss, feel free to contact YueLi (yueli65@mail.ustc.edu.cn) or Jiayong Peng (jiayong@mail.ustc.edu.cn).
 
+
 ## Citation
-If you find it is useful, please cite
-{}
+If you find it is useful, please cite our paper.
