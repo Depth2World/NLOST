@@ -13,6 +13,7 @@ In data collection, the illuminated point and sampling point keep the same direc
 
 The scene thumbnails of the captured measurements are shown as below.
 ![scene thumbnails](https://github.com/Depth2World/NLOST/blob/main/images/objects.png)
+
 The measurements can be downloaded at [googledisk]().
 
 ## Contact 
@@ -23,4 +24,5 @@ For questionss, feel free to contact YueLi (yueli65@mail.ustc.edu.cn) or Jiayong
 ## Acknowledgements
 We thank the authors that shared the code of their works. In particular:
 * Wenzhen Chen [LFE](https://github.com/princeton-computational-imaging/NLOSFeatureEmbeddings)
+* Fangzhou Mu [PTTR](https://github.com/fmu2/nlos3d)
 * Siyuan Shen [NeTF](https://github.com/zeromakerplus/NeTF_public)
