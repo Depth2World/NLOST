@@ -118,12 +118,15 @@ class NLOST(nn.Module):
         out_vlo = self.inte_rec(inte_loc, inte_glb, msfeat)  # b 1 128 128 128    
         # print(out_vlo.shape)
 
-        ### for our data ###
+        ### This is for our data ###
+        ### For fk data, you can annotate this part. ###
         zdim = out_vlo.shape[2]
         zdimnew = zdim * 100 // 128
         out_vlo = out_vlo[:, :, :zdimnew]
         out_vlo = nn.ReLU()(out_vlo)
         out_vlo = self.normalize(out_vlo)
+        #####
+
         
         raw = self.project(out_vlo)
         refine_intensity = self.inten_refine(raw)
