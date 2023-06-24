@@ -119,11 +119,11 @@ class NLOST(nn.Module):
         # print(out_vlo.shape)
 
         ### for our data ###
-        # zdim = out_vlo.shape[2]
-        # zdimnew = zdim * 100 // 128
-        # out_vlo = out_vlo[:, :, :zdimnew]
-        # out_vlo = nn.ReLU()(out_vlo)
-        # out_vlo = self.normalize(out_vlo)
+        zdim = out_vlo.shape[2]
+        zdimnew = zdim * 100 // 128
+        out_vlo = out_vlo[:, :, :zdimnew]
+        out_vlo = nn.ReLU()(out_vlo)
+        out_vlo = self.normalize(out_vlo)
         
         raw = self.project(out_vlo)
         refine_intensity = self.inten_refine(raw)
