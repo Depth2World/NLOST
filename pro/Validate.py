@@ -102,17 +102,17 @@ def test_on_align_fk(model, n_iter, logWriter, params):
         M_wnoise = np.ascontiguousarray(M_wnoise)
         M_wnoise = np.transpose(M_wnoise, (0, 3, 1, 2))  
         M_mea = torch.from_numpy(M_wnoise[None])  
-        M_mea = torch.cat([M_mea for i in range(1)],dim=0)
-        _,im_re,dep_re = test_model(M_mea)
 
         if utils.is_main_process():
-            with torch.no_grad()
-            # logWriter.add_images('fk/inten'+str(files[i]), im_re/torch.max(im_re), n_iter,dataformats="NCHW")
-            front_view = im_re.detach().cpu().numpy()[0, 0]
-            # logWriter.add_images('fk/dep'+str(files[i]), dep_re/torch.max(dep_re), n_iter,dataformats="NCHW")
-            # front_dep = dep_re.detach().cpu().numpy()[0, 0]
-            # os.makedirs(params.model_dir + f'/test_on_fk/{n_iter}/', exist_ok=True)
-            cv2.imwrite(out_path + f'n_iter{n_iter}_{i}.png', (front_view / np.max(front_view))*255)
+            with torch.no_grad():
+                test_model.eval()
+                _,im_re,dep_re = test_model(M_mea)
+                # logWriter.add_images('fk/inten'+str(files[i]), im_re/torch.max(im_re), n_iter,dataformats="NCHW")
+                front_view = im_re.detach().cpu().numpy()[0, 0]
+                # logWriter.add_images('fk/dep'+str(files[i]), dep_re/torch.max(dep_re), n_iter,dataformats="NCHW")
+                # front_dep = dep_re.detach().cpu().numpy()[0, 0]
+                # os.makedirs(params.model_dir + f'/test_on_fk/{n_iter}/', exist_ok=True)
+                cv2.imwrite(out_path + f'n_iter{n_iter}_{i}.png', (front_view / np.max(front_view))*255)
 
     return logWriter
     
@@ -123,7 +123,6 @@ def test_on_align_xu(model, n_iter, logWriter, params):
     test_model = nlost.NLOST(ch_in=1, num_coders=1,spatial=128,tlen=256,bin_len=0.0096)
     test_model = torch.nn.DataParallel(test_model,[0])
     test_model.load_state_dict(model_dict)
-    test_model.eval()
     rw_path  = '/data/yueli/dataset/cvpr2023_data'
 
     out_path = params.model_dir + '/test_on_our/'
@@ -142,15 +141,16 @@ def test_on_align_xu(model, n_iter, logWriter, params):
         M_wnoise = np.ascontiguousarray(M_wnoise)
         M_wnoise = np.transpose(M_wnoise, (0, 3, 1, 2))  
         M_mea = torch.from_numpy(M_wnoise[None])  
-        M_mea = torch.cat([M_mea for i in range(1)],dim=0)
-        _,im_re,dep_re = test_model(M_mea)
 
         if utils.is_main_process():
-            # logWriter.add_images('fk/inten'+str(files[i]), im_re/torch.max(im_re), n_iter,dataformats="NCHW")
-            front_view = im_re.detach().cpu().numpy()[0, 0]
-            # logWriter.add_images('fk/dep'+str(files[i]), dep_re/torch.max(dep_re), n_iter,dataformats="NCHW")
-            # front_dep = dep_re.detach().cpu().numpy()[0, 0]
-            # os.makedirs(params.model_dir + f'/test_on_xu_new/{n_iter}/', exist_ok=True)
-            cv2.imwrite(out_path + f'n_iter{n_iter}_{i}.png', (front_view / np.max(front_view))*255)
+            with torch.no_grad():
+                test_model.eval()
+                _,im_re,dep_re = test_model(M_mea)
+                # logWriter.add_images('fk/inten'+str(files[i]), im_re/torch.max(im_re), n_iter,dataformats="NCHW")
+                front_view = im_re.detach().cpu().numpy()[0, 0]
+                # logWriter.add_images('fk/dep'+str(files[i]), dep_re/torch.max(dep_re), n_iter,dataformats="NCHW")
+                # front_dep = dep_re.detach().cpu().numpy()[0, 0]
+                # os.makedirs(params.model_dir + f'/test_on_xu_new/{n_iter}/', exist_ok=True)
+                cv2.imwrite(out_path + f'n_iter{n_iter}_{i}.png', (front_view / np.max(front_view))*255)
     return logWriter
     
