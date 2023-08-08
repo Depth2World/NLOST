@@ -83,7 +83,6 @@ def test_on_align_fk(model, n_iter, logWriter, params):
     test_model = nlost.NLOST(ch_in=1, num_coders=1,spatial=128,tlen=256,bin_len=0.0096)
     test_model = torch.nn.DataParallel(test_model,[0])
     test_model.load_state_dict(model_dict)
-    test_model.eval()
     out_path = params.model_dir + '/test_on_fk/'
     if not os.path.exists(out_path):
             os.makedirs(out_path, exist_ok=True) 
@@ -107,6 +106,7 @@ def test_on_align_fk(model, n_iter, logWriter, params):
         _,im_re,dep_re = test_model(M_mea)
 
         if utils.is_main_process():
+            with torch.no_grad()
             # logWriter.add_images('fk/inten'+str(files[i]), im_re/torch.max(im_re), n_iter,dataformats="NCHW")
             front_view = im_re.detach().cpu().numpy()[0, 0]
             # logWriter.add_images('fk/dep'+str(files[i]), dep_re/torch.max(dep_re), n_iter,dataformats="NCHW")
