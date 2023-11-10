@@ -27,7 +27,7 @@ The real-world measurements captured by our imaging system can be downloaded at 
 3. bash run_DDP.sh
    
 ### Contact 
-For questions, feel free to contact YueLi (yueli65@mail.ustc.edu.cn) or Jiayong Peng (jiayong@mail.ustc.edu.cn).
+For questions, feel free to contact YueLi (yueli65@mail.ustc.edu.cn).
 
 ### Acknowledgements
 We thank the authors who shared the code of their works. Particularly
