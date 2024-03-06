@@ -1,7 +1,3 @@
-# --------------------------------------------------------
-# Use the Swin transformer
-# Written by Jiayong Peng
-# --------------------------------------------------------
 
 from math import sqrt, pow, log2
 from operator import pos
