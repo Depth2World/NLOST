@@ -1,5 +1,7 @@
 ## NLOST-Non-Line-of-Sight-Imaging-with-Transformer 
-Paper: [cvpr2023](https://openaccess.thecvf.com/content/CVPR2023/papers/Li_NLOST_Non-Line-of-Sight_Imaging_With_Transformer_CVPR_2023_paper.pdf)
+Paper: [CVPR2023](https://openaccess.thecvf.com/content/CVPR2023/papers/Li_NLOST_Non-Line-of-Sight_Imaging_With_Transformer_CVPR_2023_paper.pdf)
+
+### $\color{red}{New!}$ We provide two versions trained in size 256 * 256 * 512 and size 128 * 128 * 512. The pre-trained models are available now.
 
 ### Reconstructed hidden scenes from the real-world measurements captured by [FK](https://github.com/computational-imaging/nlos-fk).
 ![fk_rw](https://github.com/Depth2World/NLOST/blob/main/images/fk_rw.png)
@@ -19,12 +21,23 @@ The NLOS scenes include a ladder with letters on the ladder, sculptures of peopl
 The scene thumbnails of the captured measurements are shown below.
 ![scene thumbnails](https://github.com/Depth2World/NLOST/blob/main/images/objects.png)
 
-The real-world measurements captured by our imaging system can be downloaded at [googledisk](https://drive.google.com/file/d/1j5bq_JcR68yDuvRUz57yGigJM0JUawMn/view?usp=sharing).
+The real-world measurements captured by our imaging system can be downloaded at [googledisk](https://drive.google.com/file/d/1ybJxH5nBr7Fv3heSl5BRP70nuBCfMYc5/view?usp=sharing).
 
 ### Training
-1. Prepare the synthetic data, which is rendered by the transient rasterizer from [LFE](https://github.com/princeton-computational-imaging/NLOSFeatureEmbeddings)
-2. Prepare the real-world data.
-3. bash run_DDP.sh
+1. For evaluation on the real-world data, we trained the models on the synthetic data (~3000 motorbike dataset) provided by [LFE](https://github.com/princeton-computational-imaging/NLOSFeatureEmbeddings). \
+You can download [Here](https://drive.google.com/file/d/183VAD_wuVtwkyvfaBoguUHZgHu065BNW/view)
+
+
+2. We also utilized the real-world data provided by [FK](https://github.com/computational-imaging/nlos-fk).\
+You can download the preprocessed data [Here](https://drive.google.com/file/d/1Zf4BAwzkEesltx7zUJvWcvxa1n4XH4U2/view?usp=sharing).
+
+3. run ' bash train.sh'
+
+### Test
+1. The pre-trained models are listed in './pretain'
+
+2. run 'bash test.sh'
+
    
 ### Contact 
 For questions, feel free to contact YueLi (yueli65@mail.ustc.edu.cn).
