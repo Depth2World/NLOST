@@ -1,7 +1,7 @@
 ## NLOST-Non-Line-of-Sight-Imaging-with-Transformer 
 Paper: [CVPR2023](https://openaccess.thecvf.com/content/CVPR2023/papers/Li_NLOST_Non-Line-of-Sight_Imaging_With_Transformer_CVPR_2023_paper.pdf)
 
-### $\color{red}{New!}$ We provide two versions trained in size 256 * 256 * 512 and size 128 * 128 * 512. The pre-trained models are available now.
+### $\color{red}{New!}$ We provide two versions trained in size 256 * 256 * 512 and size 128 * 128 * 512. The pre-trained models are available now. The inference memory is about 22G~23G.
 
 ### Reconstructed hidden scenes from the real-world measurements captured by [FK](https://github.com/computational-imaging/nlos-fk).
 ![fk_rw](https://github.com/Depth2World/NLOST/blob/main/images/fk_rw.png)
