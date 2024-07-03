@@ -48,8 +48,8 @@ def validate(model, val_loader, n_iter, val_loss, params, logWriter,val_metrics)
         l_l2.append(loss_l2)
         l_l2_dep.append(loss_l2_dep)
 
-        pred = torch.clamp(int_re.detach(), 0, 1)
-        target = torch.clamp(img_gt, 0, 1)
+        pred = torch.clamp(int_re.detach(), 0, 1) # Not for the final result 
+        target = torch.clamp(img_gt, 0, 1)        #  Not for the final result 
         metric_dict = {
             'rmse': rmse(pred, target).cpu(),
             'psnr': psnr(pred, target).cpu(),
